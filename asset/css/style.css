@@ -228,6 +228,8 @@ section{
 
     .transition {
         transform: translateX(100%);
+        display: none;
+        opacity: 0;
     }
 
     /* sumbenus */
