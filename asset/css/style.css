@@ -36,6 +36,11 @@ a {
 body {
     font-family: var(--font);
     font-weight: var(--font-regular);
+    overflow-x: hidden;
+}
+
+section{
+    padding: 5rem 0;
 }
 
 #header {
@@ -59,6 +64,7 @@ body {
     display: flex;
     align-items: center;
     list-style: none;
+    transition: var(--transition);
 }
 
 .nav .ul li a,
@@ -146,6 +152,52 @@ body {
     display: none;
 }
 
+.sec_title {
+    text-align: center;
+}
+
+/* banner */
+#banner {
+    background-color: var(--bg-white);
+}
+/* service */
+#service {
+    background-color: var(--primary-white);
+}
+/* who we are */
+#weAre {
+    background-color: var(--bg-white);
+}
+/* our Team */
+#team {
+    background-color: var(--primary-white);
+}
+/* Testimonial */
+#testimonial {
+    background-color: var(--bg-white);
+}
+/* status */
+#status {
+    background-color: var(--primary-white);
+}
+/* study */
+#study {
+    background-color: var(--bg-white);
+}
+/* blog */
+#blog {
+    background-color: var(--primary-white);
+}
+/* tutorials */
+#tutorials {
+    background-color: var(--bg-white);
+}
+/* footer */
+#footer {
+    background-color: var(--primary-black);
+    color: var(--primary-white);
+}
+
 /* media query for mobile view */
 @media (max-width: 768px) {
     .container {
@@ -156,6 +208,10 @@ body {
         display: block;
     }
 
+    .mobile_menu .bar {
+        cursor: pointer;
+    }
+
     .nav .ul {
         position: absolute;
         right: 0;
@@ -164,6 +220,10 @@ body {
         height: 100vh;
         width: 40%;
         background-color: #333;
+    }
+
+    .transition {
+        transform: translateX(100%);
     }
 
     /* sumbenus */
@@ -190,6 +250,14 @@ body {
     .nav .ul .btn {
         display: block;
         width: 50%;
-        margin: 0 auto;
+        margin: 10px auto;
+    }
+     
+    .nav .ul .times {
+        padding: 10px 0 0 18px;
+    }
+    .nav .ul .close {
+        color: var(--primary-white);
+        cursor: pointer;
     }
 }
