@@ -47,6 +47,10 @@ section{
     background-color: var(--color-header);
     height: 48px;
     line-height: 48px;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 9;
 }
 
 .nav {
