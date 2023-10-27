@@ -174,9 +174,9 @@ section{
 }
 .service_main{
  margin-top: 16px;
- display: flex;
+ display: grid;
+ grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
  gap: 16px;
- flex-wrap: wrap;
 }
 .box {
     border: 1px solid #8d8d8d;
