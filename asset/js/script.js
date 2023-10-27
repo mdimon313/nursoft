@@ -11,7 +11,7 @@ chk.onclick = () => {
         document.getElementById("service").style.backgroundColor = '#474747';
         document.getElementById("weAre").style.backgroundColor = '#333';
     } else {
-        document.querySelector('meta[name="color-scheme"]').content = 'light';
+        document.querySelector('meta[name="color-scheme"]').content = '';
         document.getElementById("banner").style.backgroundColor = '';
         document.getElementById("service").style.backgroundColor = '';
         document.getElementById("weAre").style.backgroundColor = '';
