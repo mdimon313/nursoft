@@ -28,6 +28,10 @@
     margin: 0 auto;
     padding: 0 16px;
 }
+img {
+    width: 100%;
+    display: block;
+}
 
 a {
     text-decoration: none;
@@ -187,6 +191,8 @@ section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 16px;
+    grid-auto-rows: 1fr;
+    grid-auto-flow: dense;
 }
 
 .box {
@@ -226,7 +232,7 @@ div:empty {
 
 .box .box_icon i {
     color: var(--primary-white);
-    font-size: 25px;
+    font-size: 40px;
 }
 
 :where(h3) {
@@ -262,6 +268,47 @@ div:empty {
     background-color: var(--bg-white);
 }
 
+.we_are {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 16px;
+    grid-auto-rows: 1fr;
+    grid-auto-flow: dense;
+}
+
+.we_are .box_left .box_heading {
+    font-size: 32px;
+    padding: 0;
+    margin-bottom: 16px;
+    font-weight: bolder;
+}
+
+.we_are .box_left .box_desc {
+    line-height: 28px;
+    text-align: justify;
+    font-size: 15px;
+    font-weight: 500;
+}
+.we_are .box_right img {
+display: block;
+width: 100%;
+object-fit: fill;
+border-radius: 10px;
+}
+
+/* why choose us */
+.chooseus_main {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 16px;
+    grid-auto-rows: 1fr;
+    grid-auto-flow: dense;
+}
+
+.choose_box .box_meta h3 {
+    font-size: 21px;
+}
 /* our Team */
 #team {
     background-color: var(--primary-white);
@@ -281,7 +328,81 @@ div:empty {
 #study {
     background-color: var(--bg-white);
 }
-
+/* profile menu component */
+.profile_nemu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+  
+  .profile_nemu ul {
+    background: var(--primary-light);
+    padding: 0.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-radius: 50px;
+  }
+  
+  .profile_nemu ul li {
+    margin: 0 0.5rem;
+    cursor: pointer;
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 0.938rem;
+    display: inline-block;
+    padding: 5px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  .profile_nemu .portfolio_active,
+  .profile_nemu ul li:hover {
+    color: var(--primary);
+  }
+  /* profile menu component end */
+  
+  .portfolio_grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 0.935rem;
+  }
+  
+  /* portfolio card */
+  .portfolio_card {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    border-radius: 5px;
+  }
+  .portfolio_card::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.151);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 3;
+  }
+  .portfolio_card:hover::before {
+    opacity: 1;
+  }
+  .portfolio_card:hover img {
+    transform: scale(1.1);
+  }
+  .portfolio_card:hover {
+    box-shadow: 4px 5px 18px #8f8f8f69;
+  }
+  .portfolio_card img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    transition: all 0.3s ease-in-out;
+  }
 /* blog */
 #blog {
     background-color: var(--primary-white);
