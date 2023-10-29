@@ -1,3 +1,7 @@
+import services from './services.js';
+import servicesChoose from './servicesChoose.js';
+import portfolio from './portfolio.js';
+
 const bar = document.querySelector(".bar");
 const cls = document.querySelector(".close");
 let ul = document.querySelector(".ul");
@@ -38,51 +42,7 @@ cls.onclick = () => {
 
 /////////////////////////services//////////////////////////////////
 const service_container = document.getElementById("servide_container");
-const services = [
-    {
-        name: 'sd',
-        icon: 'fas fa-database',
-        heading: 'Software Development',
-        desc: 'We will create custom software according to your demand and business, that will help you to growing up your business.',
-        links: '../../sds.html'
-    },
-    {
-        name: 'wd',
-        icon: 'fas fa-laptop-code',
-        heading: 'Website Development',
-        desc: 'Now-a-days website is compulsory for a business either you have small or big business running. We will give you a great solution.',
-        links: '../../wes.html'
-    }
-    ,
-    {
-        name: 'ad',
-        icon: 'fab fa-android',
-        heading: 'App Development',
-        desc: 'For engaged with a lot of customers for your business is connect with them with a Android application. We will develop a great app for your business.',
-        links: '../../apdev.html'
-    },
-    {
-        name: 'sdt',
-        icon: 'fas fa-laptop',
-        heading: 'Software Development Training',
-        desc: 'We provide Project based training with certified teachers. If you love to programming or want to built a career on IT sector then checkout our courses layout.',
-        links: '../../softdevtraning.html'
-    },
-    {
-        name: 'itc',
-        icon: 'fas fa-lock',
-        heading: 'IT Consultancy',
-        desc: 'If you need any help with IT consultancy for your business or company then just contact with us. We will provide you a great and easy solution that will help you to solve your problems.',
-        links: '../../itcon.html'
-    },
-    {
-        name: 'ha',
-        icon: 'fas fa-tv',
-        heading: 'Hardware Accessories',
-        desc: 'For your office, company or business you must need hardware accessories now-a-days. We will provide all kind of hardware accessories at a cheap rate.',
-        links: '../../hardwareacc.html'
-    },
-];
+
 
 const template = (service, ind) => {
     return `<!-- box ${ind} --> 
@@ -103,34 +63,6 @@ services.forEach((obj, ind) => {
 
 // -------------------->>>>>>>>>>>  choose us 
 // let chooseUs = document.getElementById("chooseus_main");
-const chooseUsServices = [
-    {
-        name: 'customer support',
-        icon: 'fas fa-headset',
-        heading: '24/7 Customer Support',
-        desc: 'We have a support team that working 24 hours for our clients. At any problem you can contact with us.'
-    },
-    {
-        name: 'easy use',
-        icon: 'fas fa-fingerprint',
-        heading: 'Easy to Use',
-        desc: 'We make our software to much user-friendly so that our clients don\'t face any problem to use our software. We also give a guideline for our clients.'
-    }
-    ,
-    {
-        name: 'unique software',
-        icon: 'fas fa-laptop-code',
-        heading: 'Unique Software',
-        desc: 'We make each software as per clients requirements. So we have to code and design each software for each business. So your software will be unique.'
-    },
-    {
-        name: 'it solution',
-        icon: 'fas fa-laptop',
-        heading: 'Any Type IT Solution',
-        desc: 'We provide all kind of IT solution for your company or your business according to your requirements. We have a strong team for your support.'
-    }
-];
-
 const chooseUsBox = (elements, ind) => {
     return `<div class="choose_box box">
     <div class="box_icon"><i class="${elements.icon}"></i></div>
@@ -142,8 +74,49 @@ const chooseUsBox = (elements, ind) => {
 </div>`;
 }
 
-chooseUsServices.forEach((obj, ind) => {
+servicesChoose.forEach((obj, ind) => {
     let html = chooseUsBox(obj, ind);
     document.getElementById("chooseus_main").innerHTML += html;
-    console.log(obj);
+    // console.log(obj);
 });
+
+// portfolio grid
+
+const card = (elements, ind) => {
+    return `<div class="cards" data-name="${elements.name}">
+    <div class="portfolio_card">
+        <img src="${elements.img}" alt="img 1" />
+        <!-- <div class="portfolio_card_meta">
+            <span><i class="fal fa-plus"></i></span>
+            <span><i class="fal fa-link"></i></span>
+        </div> -->
+    </div>
+</div>`;
+}
+
+portfolio.forEach((obj, ind) => {
+    let html = card(obj, ind);
+    document.getElementById("portfolio_grid").innerHTML += html;
+    // console.log(obj);
+});
+
+// profile filters
+const btns = document.querySelectorAll(".portfolio_btns");
+const cards = document.querySelectorAll(".portfolio_grid .cards");
+
+// define filter card function
+const filterCards = e =>{
+    document.querySelector(".active").classList.remove("active");
+    e.target.classList.add("active");
+    
+    // iterate over each filter card
+    cards.forEach(card => {
+        card.classList.add("hide");
+        // check if the card matches the selected filter of "all" is selected
+        if(card.dataset.name === e.target.dataset.name || e.target.dataset.name === "all"){
+            card.classList.remove("hide");
+        }
+    })
+}
+// add click event listener to each filter buttons
+btns.forEach(btn => btn.addEventListener('click', filterCards));

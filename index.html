@@ -137,29 +137,20 @@
             <!-- portfolio menu -->
             <div class="profile_nemu">
                 <ul>
-                    <li class="portfolio_active">All</li>
-                    <li>Soft. Dev Training</li>
-                    <li>app dev</li>
-                    <li>Hardware acc.</li>
-                    <li>IT support</li>
+                    <li class="portfolio_btns active" data-name="all">All</li>
+                    <li class="portfolio_btns" data-name="software">Soft. Dev Training</li>
+                    <li class="portfolio_btns" data-name="web">app dev</li>
+                    <li class="portfolio_btns" data-name="network">Hardware acc.</li>
+                    <!-- <li>IT support</li>
                     <li>soft. dev.</li>
-                    <li>web. dev.</li>
+                    <li>web. dev.</li> -->
                 </ul>
             </div>
             <!-- portfolio menu end -->
 
             <!-- portfolio card -->
             <!-- Row 1 -->
-            <div class="portfolio_grid">
-                <div class="portfolio_grid_col-3">
-                    <div class="portfolio_card">
-                        <img src="./asset/images/weare.jpg" alt="img 1" />
-                        <!-- <div class="portfolio_card_meta">
-                            <span><i class="fal fa-plus"></i></span>
-                            <span><i class="fal fa-link"></i></span>
-                        </div> -->
-                    </div>
-                </div>
+            <div class="portfolio_grid", id="portfolio_grid">
             </div>
         </div>
     </section>
@@ -182,7 +173,8 @@
     </footer>
 
     <!-- script files -->
-    <script src="./asset/js/script.js"></script>
+    <script type="module" src="./asset/js/script.js"></script>
+    <!-- <script type="module" src="./asset/js/demo.js"></script> -->
 </body>
 
 </html>
