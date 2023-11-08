@@ -1,12 +1,14 @@
 import services from './services.js';
 import servicesChoose from './servicesChoose.js';
 import portfolio from './portfolio.js';
+import team from './team.js';
 
 const bar = document.querySelector(".bar");
 const cls = document.querySelector(".close");
 let ul = document.querySelector(".ul");
-
 let chk = document.getElementById('theme');
+
+// dark mode enable disable
 chk.onclick = () => {
     if (chk.checked == true) {
         let m = document.querySelector('meta[name="color-scheme"]');
@@ -14,11 +16,25 @@ chk.onclick = () => {
         document.getElementById("banner").style.backgroundColor = '#333';
         document.getElementById("service").style.backgroundColor = '#474747';
         document.getElementById("weAre").style.backgroundColor = '#333';
+        document.getElementById("team").style.backgroundColor = '#474747';
+        document.getElementById("testimonial").style.backgroundColor = '#333';
+        document.getElementById("status").style.backgroundColor = '#474747';
+        document.getElementById("study").style.backgroundColor = '#333';
+        document.getElementById("blog").style.backgroundColor = '#474747';
+        document.getElementById("tutorials").style.backgroundColor = '#333';
+        document.getElementById("footer").style.backgroundColor = '#474747';
     } else {
         document.querySelector('meta[name="color-scheme"]').content = '';
         document.getElementById("banner").style.backgroundColor = '';
         document.getElementById("service").style.backgroundColor = '';
         document.getElementById("weAre").style.backgroundColor = '';
+        document.getElementById("team").style.backgroundColor = '';
+        document.getElementById("testimonial").style.backgroundColor = '';
+        document.getElementById("study").style.backgroundColor = '';
+        document.getElementById("blog").style.backgroundColor = '';
+        document.getElementById("tutorials").style.backgroundColor = '';
+        document.getElementById("footer").style.backgroundColor = '';
+        document.getElementById("status").style.backgroundColor = '';
     }
 }
 
@@ -28,13 +44,11 @@ function redrc(param) {
     window.location.href = param;
 }
 
-
+// mobile responsive menue 
 bar.onclick = () => {
-    // console.log(ul);
     ul.classList.remove('transition');
 }
 cls.onclick = () => {
-    // console.log(ul);
     ul.classList.add('transition');
 }
 
@@ -61,7 +75,7 @@ services.forEach((obj, ind) => {
     service_container.innerHTML += html;
 });
 
-// -------------------->>>>>>>>>>>  choose us 
+////////////////////////////  choose us  ///////////////////////////////
 // let chooseUs = document.getElementById("chooseus_main");
 const chooseUsBox = (elements, ind) => {
     return `<div class="choose_box box">
@@ -77,10 +91,9 @@ const chooseUsBox = (elements, ind) => {
 servicesChoose.forEach((obj, ind) => {
     let html = chooseUsBox(obj, ind);
     document.getElementById("chooseus_main").innerHTML += html;
-    // console.log(obj);
 });
 
-// portfolio grid
+/////////////////////////////////// portfolio //////////////////////////////////////
 
 const card = (elements, ind) => {
     return `<div class="cards" data-name="${elements.name}">
@@ -97,26 +110,54 @@ const card = (elements, ind) => {
 portfolio.forEach((obj, ind) => {
     let html = card(obj, ind);
     document.getElementById("portfolio_grid").innerHTML += html;
-    // console.log(obj);
 });
 
-// profile filters
+// filters
 const btns = document.querySelectorAll(".portfolio_btns");
 const cards = document.querySelectorAll(".portfolio_grid .cards");
 
 // define filter card function
-const filterCards = e =>{
+const filterCards = e => {
     document.querySelector(".active").classList.remove("active");
     e.target.classList.add("active");
-    
+
     // iterate over each filter card
     cards.forEach(card => {
         card.classList.add("hide");
         // check if the card matches the selected filter of "all" is selected
-        if(card.dataset.name === e.target.dataset.name || e.target.dataset.name === "all"){
+        if (card.dataset.name === e.target.dataset.name || e.target.dataset.name === "all") {
             card.classList.remove("hide");
         }
     })
 }
 // add click event listener to each filter buttons
 btns.forEach(btn => btn.addEventListener('click', filterCards));
+
+// ===================> TEAM <====================
+const teamTemplate = (elements, ind) => {
+    return `<div class="team team_single">
+    <div class="member_img">
+        <img src="${elements.image}" alt="Muhammed Nur e Alam" width="100%" />
+    </div>
+    <div class="member_meta">
+        <h2 class="member_name">${elements.name}</h2>
+        <p class="member_designation">${elements.designation}</p>
+        <p class="member_desc">${elements.desc}</p>
+        ${elements.social ? `<div class="social_links">
+        <ul>
+            <li><a href="${elements.social.facebook}" class="f"><i class="${elements.social.f_icon}"></i></a></li>
+            <li><a href="${elements.social.twitter}" class="t"><i class="${elements.social.t_icon}"></i></a></li>
+            <li><a href="${elements.social.instagram}" class="i"><i class="${elements.social.ins_icon}"></i></a></li>
+            <li><a href="${elements.social.linkedin}" class="in"><i class="${elements.social.lin_icon}"></i></i></a></li>
+            <li><a href="${elements.social.whatsapp}" class="w"><i class="${elements.social.wp_icon}"></i></i></a></li>
+            <li><a href="${elements.social.youtube}" class="y"><i class="${elements.social.y_icon}"></i></i></a></li>
+        </ul>
+    </div>`: '' }
+    </div>
+</div>`;
+}
+
+team.forEach((obj, ind) => {
+    let html = teamTemplate(obj, ind);
+    document.getElementById("team_main_wrapper").innerHTML += html;
+});
