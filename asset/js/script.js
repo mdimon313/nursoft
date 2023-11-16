@@ -135,26 +135,23 @@ btns.forEach(btn => btn.addEventListener('click', filterCards));
 
 // ===================> TEAM <====================
 const teamTemplate = (elements, ind) => {
-    return `<div class="team team_single">
-    <div class="member_img">
-        <img src="${elements.image}" alt="Muhammed Nur e Alam" width="100%" />
+    return `<div class="pro profileBox-${ind}">
+    <div class="pro_img"><img src="${elements.image}" alt="" srcset=""></div>
+    <div class="pro_desc">
+        <h2>${elements.name}</h2>
+        <p class="des">${elements.designation}</p>
+        <p class="des_p">${elements.desc}</p>
     </div>
-    <div class="member_meta">
-        <h2 class="member_name">${elements.name}</h2>
-        <p class="member_designation">${elements.designation}</p>
-        <p class="member_desc">${elements.desc}</p>
-        ${elements.social ? `<div class="social_links">
-        <ul>
-            <li><a href="${elements.social.facebook}" class="f"><i class="${elements.social.f_icon}"></i></a></li>
-            <li><a href="${elements.social.twitter}" class="t"><i class="${elements.social.t_icon}"></i></a></li>
-            <li><a href="${elements.social.instagram}" class="i"><i class="${elements.social.ins_icon}"></i></a></li>
-            <li><a href="${elements.social.linkedin}" class="in"><i class="${elements.social.lin_icon}"></i></i></a></li>
-            <li><a href="${elements.social.whatsapp}" class="w"><i class="${elements.social.wp_icon}"></i></i></a></li>
-            <li><a href="${elements.social.youtube}" class="y"><i class="${elements.social.y_icon}"></i></i></a></li>
-        </ul>
-    </div>`: '' }
+    <!-- social link -->
+    <div class="social">
+        <a href="${elements.social.facebook}" class="f"><i class="${elements.social.f_icon}"></i></a>
+        <a href="${elements.social.twitter}" class="t"><i class="${elements.social.t_icon}"></i></a>
+        <a href="${elements.social.instagram}" class="ins"><i class="${elements.social.ins_icon}"></i></a>
+        <a href="${elements.social.linkedin}" class="lin"><i class="${elements.social.lin_icon}"></i></a>
+        <a href="${elements.social.whatsapp}" class="wp"><i class="${elements.social.wp_icon}"></i></a>
+        <a href="${elements.social.youtube}" class="y"><i class="${elements.social.y_icon}"></i></a>
     </div>
-</div>`;
+</div>`
 }
 
 team.forEach((obj, ind) => {
