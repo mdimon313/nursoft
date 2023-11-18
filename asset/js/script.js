@@ -154,7 +154,9 @@ const teamTemplate = (elements, ind) => {
 </div>`
 }
 
+console.log(team)
 team.forEach((obj, ind) => {
+    console.log(obj);
     let html = teamTemplate(obj, ind);
     document.getElementById("team_main_wrapper").innerHTML += html;
 });

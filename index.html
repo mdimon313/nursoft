@@ -24,7 +24,7 @@
                     <span class="times">
                         <i class="fas fa-times close"></i>
                     </span>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="#" class="active">Home</a></li>
                     <li class="li">Service
                         <ul class="submenu">
                             <li><a href="./sds.html">Software Development Service</a></li>
@@ -37,7 +37,7 @@
                     </li>
                     <li><a href="#">Portfolio</a></li>
                     <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact us</a></li>
+                    <li><a href="#contact">Contact us</a></li>
                     <button class="btn login">Login</button>
                 </ul>
                 <span class="mobile_menu"><i class="fas fa-bars bar"></i></i></span>
@@ -111,6 +111,28 @@
             </div>
         </div>
     </section>
+    <!-- our project -->
+    <section id="study">
+        <div class="container">
+            <h2 class="sec_title">Our Projects</h2>
+
+            <!-- portfolio menu -->
+            <div class="profile_nemu">
+                <ul>
+                    <li class="portfolio_btns active" data-name="all">All</li>
+                    <li class="portfolio_btns" data-name="software">Software Development Training</li>
+                    <li class="portfolio_btns" data-name="web">Software Development</li>
+                    <li class="portfolio_btns" data-name="network">It Consultansy</li>
+                </ul>
+            </div>
+            <!-- portfolio menu end -->
+
+            <!-- portfolio card -->
+            <!-- Row 1 -->
+            <div class="portfolio_grid" , id="portfolio_grid">
+            </div>
+        </div>
+    </section>
     <!-- our team -->
     <section id="team">
         <div class="container">
@@ -149,53 +171,36 @@
         </div>
     </section>
 
-    <!-- status -->
-    <section id="status">
-        <div class="container">
-            <h2 class="sec_title">Status</h2>
-        </div>
-    </section>
-    <!-- study -->
-    <section id="study">
-        <div class="container">
-            <h2 class="sec_title">Our Projects</h2>
-
-            <!-- portfolio menu -->
-            <div class="profile_nemu">
-                <ul>
-                    <li class="portfolio_btns active" data-name="all">All</li>
-                    <li class="portfolio_btns" data-name="software">Software Development Training</li>
-                    <li class="portfolio_btns" data-name="web">App Development</li>
-                    <li class="portfolio_btns" data-name="network">Hardware Accessories</li>
-                    <!-- <li>IT support</li>
-                    <li>soft. dev.</li>
-                    <li>web. dev.</li> -->
-                </ul>
-            </div>
-            <!-- portfolio menu end -->
-
-            <!-- portfolio card -->
-            <!-- Row 1 -->
-            <div class="portfolio_grid" , id="portfolio_grid">
-            </div>
-        </div>
-    </section>
-    <!-- blog -->
-    <section id="blog">
-        <div class="container">
-            <h2 class="sec_title">Blog</h2>
-        </div>
-    </section>
-    <!-- tutorials -->
-    <section id="tutorials">
-        <div class="container">
-            <h2 class="sec_title">Tutorials</h2>
-        </div>
-    </section>
-
     <!-- footr -->
     <footer id="footer">
-        <p style="text-align: center;">&copy; all rights reserved are nur-soft</p>
+        <div class="container">
+            <div class="footer_wrapper">
+                <div class="com_info">
+                    <h2>NUR-SOFT.</h2>
+                    <address>
+                        <p>Email: <span>nursoft@gmail.com</span></p>
+                        <p>Phone:
+                            <a href="tel:+8801947813505">018374746</a>
+                        </p>
+                        <p>Address: Lorem ipsum dolor sit amet.</p>
+                    </address>
+                    <p>&copy; all rights reserved are nur-soft</p>
+                </div>
+
+                <!-- contact form -->
+                <div class="contact_form" id="contact">
+                    <div class="contact_main">
+                        <div class="name">
+                            <input type="text" placeholder="Full name" />
+                            <input type="email" placeholder="Email" />
+                        </div>
+                        <input type="text" placeholder="Title">
+                        <textarea name="msg" id="msg" placeholder="Your Text"></textarea>
+                        <button type="button">Send</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- script files -->
